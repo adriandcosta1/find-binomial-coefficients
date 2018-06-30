@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+function factorial(n){
+	if(n <=0){
+		return 1;
+	}
+	return n * factorial(n - 1);
+}
+
+function outputCoeff(){
+	var order = $("#order").val();
+	var i = 0;
+	var result = 0;
+	var str = "";
+	var comma = "";
+	for(; i <= order; i++){
+		result = (factorial(order)/(factorial(order-i) * factorial(i)));
+		comma = (i > (order - 1) ? "" : ", ");
+		str += result.toString().concat(comma); 
+	}
+	$("#output").text(str);
+}
+</script>
+Please enter the order of the polynomial to find out all the binomial coefficients: <input id="order" type="text"></input>
+<button id="coeff" onclick="outputCoeff()">Click Me</button>
+<br/>
+<div id="output">
+</div>
+</body>
+</html>
